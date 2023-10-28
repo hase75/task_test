@@ -9,7 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("index") }}<br>
                     <a href="{{ route('contacts.create') }}" class="text-blue-500">新規登録</a>
 
                     <div class="lg:w-2/3 w-full mx-auto overflow-auto">
@@ -31,7 +30,6 @@
                                 <td class="border-t-2 border-gray-200 px-4 py-3">{{ $contact->title }}</td>
                                 <td class="border-t-2 border-gray-200 px-4 py-3">{{ $contact->created_at }}</td>
                                 <td class="border-t-2 border-gray-200 px-4 py-3"><a class="text-blue-500" href="{{ route('contacts.show', ['id' => $contact->id])}}">詳細を見る</td>
-                                <input name="plan" type="radio">
                                 </td>
                             </tr>
                         @endforeach
