@@ -15,5 +15,8 @@ class ShopController extends Controller
         $shops = Area::find(1)->shops;
         //親 <-子
         $area = Shop::find(2)->area;
+
+        //多対多
+        $routes = Shop::find(1)->routes()->get();
     }
 }
