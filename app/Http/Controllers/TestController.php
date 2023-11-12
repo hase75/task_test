@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Test;
-use Illuminate\Support\Facades\DB;
+use App\Models\Test;//Eloquent(エロクアント)
+use Illuminate\Support\Facades\DB;//クエリビルダ
 
 class TestController extends Controller
 {
@@ -26,6 +26,7 @@ class TestController extends Controller
 
         dd($values, $count, $first, $whereBBB, $queryBuilder);
 
+        //compactで$valuesの情報をviewに送る
         return view('tests.test', compact('values'));
     }
 }

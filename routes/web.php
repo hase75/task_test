@@ -23,10 +23,10 @@ Route::get('shops', [ShopController::class, 'index']);
 // Route::resource('contacts', ContactFormController::class);
 
 
-Route::prefix('contacts')
-->middleware(['auth'])
-->controller(ContactFormController::class)
-->name('contacts.')
+Route::prefix('contacts')//全てのルートURLの前にcontactsというURLをつけることができる
+->middleware(['auth'])//全てのルートに認証制限をつける
+->controller(ContactFormController::class)//コントローラの指定
+->name('contacts.')//ルート名
 ->group(function(){
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');

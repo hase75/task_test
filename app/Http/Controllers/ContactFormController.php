@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ContactForm;
+use App\Models\ContactForm;//Eloquent(エロクアント)
 use App\Services\CheckFormService;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
@@ -59,6 +59,7 @@ class ContactFormController extends Controller
     {
         // dd($request, $request->name);
 
+        //$requestを使いデータベースから情報を取り出している
         ContactForm::create([
             'name' => $request->name,
             'title' => $request->title,
@@ -69,6 +70,7 @@ class ContactFormController extends Controller
             'contact' => $request->contact,
         ]);
 
+        //リダイレクト
         return to_route('contacts.index');
     }
 
@@ -80,6 +82,7 @@ class ContactFormController extends Controller
      */
     public function show($id)
     {
+        //idの情報をデータベースから持ってくる
         $contact = ContactForm::find($id);
 
         $gender = CheckFormService::checkGender($contact);
